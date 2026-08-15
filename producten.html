@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producten — Bij U Geknipt</title>
+  <meta name="description" content="Professionele haarverzorgingsproducten, geselecteerd voor thuis gebruik.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER (identiek aan index.html, "Producten" is nu actief) -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="Logo Bij U Geknipt">
+        Bij U Geknipt
+      </a>
+
+      <button class="nav-toggle" aria-label="Menu openen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="producten.html" class="is-active">Producten</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <section class="section">
+    <div class="container">
+
+      <!-- ======================================================
+           KORTE TEKST BOVEN DE PRODUCTEN — pas hier de intro aan.
+           ====================================================== -->
+      <div class="products-intro">
+        <span class="eyebrow">Producten</span>
+        <h1 style="font-size: clamp(1.8rem, 3.4vw, 2.6rem);">Haarverzorging voor thuis</h1>
+        <p>
+          Een kleine, zorgvuldig samengestelde selectie professionele
+          producten die ik ook zelf gebruik tijdens knipbeurten. Interesse
+          in een product? Neem contact op om te bestellen of af te halen.
+        </p>
+      </div>
+
+      <!-- ======================================================
+           PRODUCTGRID
+           Elk .product-card blok = 1 product. Kopieer een heel
+           <div class="product-card">...</div> blok om een nieuw
+           product toe te voegen, of verwijder er een om er een
+           weg te halen. Rijen vullen automatisch (4 op groot
+           scherm, 2 op tablet, 1 op mobiel — zie css/style.css
+           sectie 7 om dit aantal te wijzigen).
+           ====================================================== -->
+      <div class="product-grid">
+
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/producten/placeholder-fles.svg" alt="Herstellende Shampoo">
+          </div>
+          <p class="product-name">Herstellende Shampoo</p>
+          <p class="product-price">&euro; 14,95</p>
+          <a href="contact.html?product=Herstellende%20Shampoo" class="product-cta">Bestel via contact &rarr;</a>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/producten/placeholder-fles.svg" alt="Voedende Conditioner">
+          </div>
+          <p class="product-name">Voedende Conditioner</p>
+          <p class="product-price">&euro; 14,95</p>
+          <a href="contact.html?product=Voedende%20Conditioner" class="product-cta">Bestel via contact &rarr;</a>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/producten/placeholder-potje.svg" alt="Stylingwax Mat">
+          </div>
+          <p class="product-name">Stylingwax Mat</p>
+          <p class="product-price">&euro; 12,50</p>
+          <a href="contact.html?product=Stylingwax%20Mat" class="product-cta">Bestel via contact &rarr;</a>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/producten/placeholder-spray.svg" alt="Haarserum Glans">
+          </div>
+          <p class="product-name">Haarserum Glans</p>
+          <p class="product-price">&euro; 18,00</p>
+          <a href="contact.html?product=Haarserum%20Glans" class="product-cta">Bestel via contact &rarr;</a>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/producten/placeholder-spray.svg" alt="Droogshampoo">
+          </div>
+          <p class="product-name">Droogshampoo</p>
+          <p class="product-price">&euro; 10,95</p>
+          <a href="contact.html?product=Droogshampoo" class="product-cta">Bestel via contact &rarr;</a>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/producten/placeholder-spray.svg" alt="Hitteswerkende Spray">
+          </div>
+          <p class="product-name">Hitteswerkende Spray</p>
+          <p class="product-price">&euro; 13,50</p>
+          <a href="contact.html?product=Hitteswerkende%20Spray" class="product-cta">Bestel via contact &rarr;</a>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/producten/placeholder-potje.svg" alt="Voedend Haarmasker">
+          </div>
+          <p class="product-name">Voedend Haarmasker</p>
+          <p class="product-price">&euro; 16,95</p>
+          <a href="contact.html?product=Voedend%20Haarmasker" class="product-cta">Bestel via contact &rarr;</a>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/producten/placeholder-kam.svg" alt="Reisformaat Kammenset">
+          </div>
+          <p class="product-name">Reisformaat Kammenset</p>
+          <p class="product-price">&euro; 8,50</p>
+          <a href="contact.html?product=Reisformaat%20Kammenset" class="product-cta">Bestel via contact &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER (identiek aan index.html) -->
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; <span id="year"></span> Bij U Geknipt. Alle rechten voorbehouden.</span>
+      <span>KvK: 00000000 &middot; <a href="contact.html">Contact</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

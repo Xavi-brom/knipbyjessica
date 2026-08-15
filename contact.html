@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Bij U Geknipt</title>
+  <meta name="description" content="Maak een afspraak of stel een vraag aan uw kapper aan huis.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER (identiek aan index.html, "Contact" is nu actief) -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="Logo Bij U Geknipt">
+        Bij U Geknipt
+      </a>
+
+      <button class="nav-toggle" aria-label="Menu openen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="producten.html">Producten</a></li>
+          <li><a href="contact.html" class="is-active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <section class="section">
+    <div class="container contact-layout">
+
+      <!-- ======================================================
+           CONTACTGEGEVENS — pas hieronder telefoon, e-mail en
+           werkgebied aan naar jouw eigen gegevens.
+           ====================================================== -->
+      <div class="contact-info">
+        <span class="eyebrow">Contact</span>
+        <h2>Liever direct contact, of een afspraak maken?</h2>
+        <p style="color:var(--color-ink-soft); margin-bottom: 28px;">
+          Stuur een bericht via het formulier, of neem rechtstreeks contact op.
+          Ik reageer meestal binnen 24 uur.
+        </p>
+
+        <dl>
+          <div class="contact-detail">
+            <dt>Telefoon</dt>
+            <dd><a href="tel:+31600000000">06 - 00 00 00 00</a></dd>
+          </div>
+          <div class="contact-detail">
+            <dt>E-mail</dt>
+            <dd><a href="mailto:info@bijugeknipt.nl">info@bijugeknipt.nl</a></dd>
+          </div>
+          <div class="contact-detail">
+            <dt>Werkgebied</dt>
+            <dd>Regio [plaatsnaam] en omgeving (± 15 km)</dd>
+          </div>
+          <div class="contact-detail">
+            <dt>Beschikbaar</dt>
+            <dd>Dinsdag t/m zaterdag, 9:00 – 18:00</dd>
+          </div>
+        </dl>
+      </div>
+
+
+      <!-- ======================================================
+           CONTACTFORMULIER
+           --------------------------------------------------
+           BELANGRIJK: vervang "FORMSPREE_URL_HIER" hieronder door
+           je eigen Formspree-link (bv. https://formspree.io/f/abc1234).
+           Zie de uitleg in js/main.js voor de volledige stappen.
+           Zonder die aanpassing werkt het versturen niet.
+           ====================================================== -->
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/FORMSPREE_URL_HIER" method="POST">
+
+          <div class="form-row form-row--split">
+            <div>
+              <label for="naam">Naam</label>
+              <input type="text" id="naam" name="Naam" required>
+            </div>
+            <div>
+              <label for="telefoon">Telefoonnummer</label>
+              <input type="tel" id="telefoon" name="Telefoonnummer">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="email">E-mailadres</label>
+            <input type="email" id="email" name="E-mailadres" required>
+          </div>
+
+          <div class="form-row">
+            <label for="adres">Adres (voor de knipbeurt aan huis)</label>
+            <input type="text" id="adres" name="Adres" placeholder="Straat, huisnummer, plaats">
+          </div>
+
+          <div class="form-row">
+            <label for="bericht">Bericht</label>
+            <textarea id="bericht" name="Bericht" rows="5" required></textarea>
+          </div>
+
+          <!-- Verborgen veld zodat je in je mail meteen ziet vanaf welke pagina het bericht komt -->
+          <input type="hidden" name="_subject" value="Nieuw bericht via de website — Bij U Geknipt">
+
+          <button type="submit" class="btn btn--primary" style="width:100%;">Verstuur bericht</button>
+
+          <p class="form-note">
+            Door dit formulier te versturen gaat u ermee akkoord dat ik uw
+            gegevens gebruik om contact met u op te nemen.
+          </p>
+
+          <!-- Bevestigings-/foutmelding, wordt getoond door js/main.js -->
+          <div class="form-status" id="form-status"></div>
+        </form>
+
+    </div>
+  </section>
+
+
+  <!-- FOOTER (identiek aan index.html) -->
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; <span id="year"></span> Bij U Geknipt. Alle rechten voorbehouden.</span>
+      <span>KvK: 00000000</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Kleine extra: als iemand via een productpagina hier komt
+    // (?product=Naam), wordt het berichtveld alvast ingevuld.
+    var params = new URLSearchParams(window.location.search);
+    var product = params.get('product');
+    if (product) {
+      document.getElementById('bericht').value =
+        'Hallo, ik ben geïnteresseerd in: ' + product + '.\n\n';
+    }
+  </script>
+</body>
+</html>

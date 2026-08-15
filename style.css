@@ -1,0 +1,654 @@
+/* ==========================================================================
+   BIJ U GEKNIPT — STYLESHEET
+   --------------------------------------------------------------------------
+   Dit bestand is opgedeeld in duidelijke secties. Zoek op de titels
+   tussen === om snel te vinden wat je wil aanpassen:
+
+   1. LETTERTYPES & KLEUREN (design tokens)   -> pas hier je huisstijl aan
+   2. BASIS / RESET
+   3. LAYOUT HELPERS (container, sectie-spacing)
+   4. HEADER / NAVIGATIE
+   5. KNOPPEN
+   6. HOME PAGINA (hero, stappen, route-lijn, uitgelicht)
+   7. PRODUCTEN PAGINA (grid met producten)
+   8. CONTACT PAGINA (formulier)
+   9. FOOTER
+   10. RESPONSIVE (mobiel / tablet aanpassingen)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. LETTERTYPES & KLEUREN
+   Dit is de plek om de hele uitstraling van de site te wijzigen.
+   Alle kleuren/afmetingen in de rest van het bestand verwijzen hiernaar toe,
+   dus als je hier iets wijzigt, verandert het overal automatisch mee.
+   ========================================================================== */
+:root{
+  /* --- Kleuren ---------------------------------------------------------- */
+  --color-bg:        #F1ECE2;   /* warme, zachte achtergrondkleur (basis) */
+  --color-bg-alt:     #E7DFCF;   /* iets donkerdere variant voor afwisselende secties */
+  --color-surface:    #FFFDF9;   /* kaarten / formulier-achtergrond, bijna wit */
+  --color-ink:         #241F1B;   /* hoofdtekstkleur, warm zwart */
+  --color-ink-soft:    #5C554C;   /* subtielere tekst (bijschriften, intro's) */
+  --color-line:        #D9CFBA;   /* dunne lijntjes/randjes */
+
+  --color-accent:      #6E2A3A;   /* hoofdaccent: dieprode wijnkleur (kapperstraditie) */
+  --color-accent-dark: #53202D;   /* donkere hover-variant van het accent */
+  --color-gold:        #B4894F;   /* tweede accent: gedempt goud, voor kleine details */
+
+  /* --- Typografie --------------------------------------------------------
+     Fraunces  = sierlijk lettertype voor titels (karakter, persoonlijk)
+     Work Sans = leesbaar lettertype voor lopende tekst
+     Space Mono = 'prijskaartje'-lettertype, alleen gebruikt bij prijzen
+  ------------------------------------------------------------------------ */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Work Sans', -apple-system, Helvetica, Arial, sans-serif;
+  --font-price: 'Space Mono', 'Courier New', monospace;
+
+  /* --- Overige tokens ----------------------------------------------------*/
+  --radius: 4px;                     /* hoekafronding: klein = strak/vakkundig */
+  --shadow-soft: 0 12px 30px -18px rgba(36, 31, 27, 0.35);
+  --max-width: 1180px;                /* maximale breedte van de inhoud */
+}
+
+/* Lettertypes laden (Google Fonts, gratis, laadt automatisch bij bezoekers) */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Space+Mono&display=swap');
+
+
+/* ==========================================================================
+   2. BASIS / RESET
+   ========================================================================== */
+*, *::before, *::after{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img{ max-width: 100%; display: block; }
+
+a{ color: inherit; text-decoration: none; }
+
+h1, h2, h3{
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.5em 0;
+}
+
+p{ margin: 0 0 1em 0; }
+
+/* Duidelijke focus-ring voor toetsenbordgebruikers (toegankelijkheid) */
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible{
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Beweging beperken voor mensen die dat in hun systeem hebben ingesteld */
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+
+/* ==========================================================================
+   3. LAYOUT HELPERS
+   ========================================================================== */
+.container{
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section{
+  padding: clamp(56px, 9vw, 108px) 0;   /* schaalt mee met schermbreedte */
+}
+
+.section--alt{
+  background: var(--color-bg-alt);
+}
+
+.section-head{
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+
+.eyebrow{
+  display: inline-block;
+  font-family: var(--font-price);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 14px;
+}
+
+.section-head h2{
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+}
+
+.section-head p{
+  color: var(--color-ink-soft);
+  font-size: 1.05rem;
+}
+
+
+/* ==========================================================================
+   4. HEADER / NAVIGATIE
+   Logo staat links, de 3 pagina's rechts. Op mobiel klapt het menu in
+   via een hamburger-knop (zie js/main.js voor de logica).
+   ========================================================================== */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(241, 236, 226, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.site-header .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+/* --- Logo plek (links) ---------------------------------------------------
+   Vervang images/logo.svg door je eigen logo-bestand, of vervang dit
+   hele blok door platte tekst als je (nog) geen logo hebt. */
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.logo img{
+  height: 40px;
+  width: 40px;
+}
+
+.main-nav ul{
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a{
+  display: inline-block;
+  padding: 10px 18px;
+  font-size: 0.98rem;
+  font-weight: 500;
+  border-radius: var(--radius);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.main-nav a:hover{
+  background: var(--color-bg-alt);
+}
+
+/* Actieve pagina (class="is-active" op de <a> van de huidige pagina) */
+.main-nav a.is-active{
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* Hamburger-knop: standaard verborgen, komt terug op mobiel (zie sectie 10) */
+.nav-toggle{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  background: none;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.nav-toggle span{
+  display: block;
+  height: 2px;
+  width: 20px;
+  margin: 0 auto;
+  background: var(--color-ink);
+}
+
+
+/* ==========================================================================
+   5. KNOPPEN
+   ========================================================================== */
+.btn{
+  display: inline-block;
+  padding: 14px 30px;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn--primary{
+  background: var(--color-accent);
+  color: #FBF6EE;
+}
+.btn--primary:hover{
+  background: var(--color-accent-dark);
+  transform: translateY(-1px);
+}
+
+.btn--outline{
+  background: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+}
+.btn--outline:hover{
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+
+
+/* ==========================================================================
+   6. HOME PAGINA
+   ========================================================================== */
+
+/* --- Hero ---------------------------------------------------------------*/
+.hero{
+  padding: clamp(64px, 10vw, 120px) 0 clamp(40px, 6vw, 72px);
+}
+
+.hero .container{
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero h1{
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+}
+
+.hero-lead{
+  font-size: 1.15rem;
+  color: var(--color-ink-soft);
+  max-width: 46ch;
+}
+
+.hero-actions{
+  display: flex;
+  gap: 14px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+/* --- Route-lijn: het signatuur-element van deze site ---------------------
+   Symboliseert "de kapper komt naar u toe": een gestippeld pad tussen
+   een huisje en een schaar. Puur CSS/SVG, geen afbeelding nodig. */
+.route{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+.route svg{ width: 100%; height: auto; }
+.route-path{
+  stroke: var(--color-accent);
+  stroke-width: 2.5;
+  stroke-dasharray: 1 12;
+  stroke-linecap: round;
+  fill: none;
+}
+.route-icon-bg{
+  fill: var(--color-surface);
+  stroke: var(--color-line);
+}
+
+/* --- Stappen ("hoe het werkt") -------------------------------------------
+   Genummerd omdat het hier om een echt, chronologisch proces gaat. */
+.steps{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.step{
+  padding: 28px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+}
+
+.step-number{
+  font-family: var(--font-price);
+  font-size: 0.85rem;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.step h3{
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.step p{
+  color: var(--color-ink-soft);
+  font-size: 0.98rem;
+  margin: 0;
+}
+
+/* --- Uitgelicht: teaser naar de productenpagina ---------------------------*/
+.teaser{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.teaser-visual{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.teaser-visual img{
+  border-radius: var(--radius);
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+.teaser-visual img:first-child{
+  grid-row: 1 / 3;
+  aspect-ratio: 3/5;
+}
+
+/* --- Citaat / testimonial -------------------------------------------------*/
+.quote{
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.quote blockquote{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  margin: 0 0 20px 0;
+}
+.quote cite{
+  font-style: normal;
+  color: var(--color-ink-soft);
+  font-size: 0.95rem;
+}
+
+/* --- Slotoproep (call to action) -------------------------------------------*/
+.cta-banner{
+  background: var(--color-accent);
+  color: #FBF6EE;
+  text-align: center;
+  padding: clamp(48px, 8vw, 80px) 24px;
+  border-radius: var(--radius);
+}
+.cta-banner h2{ font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.cta-banner p{ color: rgba(251, 246, 238, 0.85); margin-bottom: 24px; }
+.cta-banner .btn--outline{
+  border-color: rgba(251, 246, 238, 0.6);
+  color: #FBF6EE;
+}
+.cta-banner .btn--outline:hover{
+  background: #FBF6EE;
+  color: var(--color-accent);
+}
+
+
+/* ==========================================================================
+   7. PRODUCTEN PAGINA
+   Rijen van producten naast elkaar. Standaard 4 per rij op groot scherm.
+   WIL JE 3 PER RIJ I.P.V. 4? -> verander hieronder "220px" naar "260px"
+   bij .product-grid, of zet 'm vast op 3 kolommen (zie comment).
+   ========================================================================== */
+.products-intro{
+  max-width: 620px;
+  margin-bottom: 44px;
+}
+.products-intro p{
+  color: var(--color-ink-soft);
+  font-size: 1.05rem;
+}
+
+.product-grid{
+  display: grid;
+  /* Vult automatisch 4 (of 3, op kleinere schermen) kolommen aan.
+     Vaste 3 kolommen i.p.v. automatisch? Vervang de regel hieronder door:
+     grid-template-columns: repeat(3, 1fr);  */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px 24px;
+}
+
+.product-card{
+  display: flex;
+  flex-direction: column;
+}
+
+.product-image{
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  margin-bottom: 14px;
+}
+.product-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-name{
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.product-price{
+  font-family: var(--font-price);
+  font-size: 0.95rem;
+  color: var(--color-accent);
+}
+
+.product-cta{
+  margin-top: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.product-cta:hover{ color: var(--color-accent); }
+
+
+/* ==========================================================================
+   8. CONTACT PAGINA
+   ========================================================================== */
+.contact-layout{
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.contact-info h2{
+  font-size: 1.6rem;
+}
+
+.contact-detail{
+  display: flex;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+.contact-detail:last-child{ border-bottom: none; }
+
+.contact-detail dt{
+  font-family: var(--font-price);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  width: 100px;
+  flex-shrink: 0;
+}
+.contact-detail dd{
+  margin: 0;
+  color: var(--color-ink-soft);
+}
+
+/* --- Formulier -------------------------------------------------------- */
+.contact-form{
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: clamp(24px, 4vw, 40px);
+  box-shadow: var(--shadow-soft);
+}
+
+.form-row{
+  margin-bottom: 20px;
+}
+
+.form-row label{
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-row input,
+.form-row textarea{
+  width: 100%;
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-ink);
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+}
+
+.form-row input:focus,
+.form-row textarea:focus{
+  border-color: var(--color-accent);
+}
+
+.form-row--split{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-note{
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  margin-top: 14px;
+}
+
+/* Statusmeldingen na versturen (worden getoond/verborgen via js/main.js) */
+.form-status{
+  display: none;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  font-size: 0.92rem;
+}
+.form-status.is-visible{ display: block; }
+.form-status--success{ background: #E4EFE2; color: #2C5F2D; }
+.form-status--error{ background: #F3E1DE; color: #8A2E1F; }
+
+
+/* ==========================================================================
+   9. FOOTER
+   ========================================================================== */
+.site-footer{
+  border-top: 1px solid var(--color-line);
+  padding: 36px 0;
+}
+.site-footer .container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  color: var(--color-ink-soft);
+}
+.site-footer a:hover{ color: var(--color-accent); }
+
+
+/* ==========================================================================
+   10. RESPONSIVE
+   Mobile-first is netter, maar omdat dit ontwerp op desktop begint met
+   meerkoloms-layouts, breken we die hieronder af naar kleinere schermen.
+   ========================================================================== */
+
+/* --- Tablet (kleiner dan 900px) ------------------------------------------*/
+@media (max-width: 900px){
+  .hero .container{ grid-template-columns: 1fr; }
+  .route{ order: -1; max-width: 420px; margin: 0 auto; }
+
+  .steps{ grid-template-columns: 1fr 1fr; }
+
+  .teaser{ grid-template-columns: 1fr; }
+  .teaser-visual{ order: -1; }
+
+  .contact-layout{ grid-template-columns: 1fr; }
+}
+
+/* --- Mobiel (kleiner dan 680px) -------------------------------------------*/
+@media (max-width: 680px){
+
+  /* Hamburgermenu tonen, normale menubalk verbergen */
+  .nav-toggle{ display: flex; }
+
+  .main-nav{
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-line);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+  .main-nav.is-open{ max-height: 260px; }
+
+  .main-nav ul{
+    flex-direction: column;
+    padding: 8px 24px 20px;
+    gap: 0;
+  }
+  .main-nav a{ display: block; padding: 14px 8px; border-bottom: 1px solid var(--color-line); }
+
+  .steps{ grid-template-columns: 1fr; }
+
+  .form-row--split{ grid-template-columns: 1fr; }
+
+  .product-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* --- Heel klein (kleiner dan 400px): 1 product per rij -------------------*/
+@media (max-width: 400px){
+  .product-grid{ grid-template-columns: 1fr; }
+}

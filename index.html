@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- PAS AAN: titel + omschrijving die in Google en browsertabs verschijnt -->
+  <title>Bij U Geknipt — Kapper aan huis</title>
+  <meta name="description" content="Professionele kapper aan huis. Geen reistijd, geen wachtrij — geknipt in uw eigen vertrouwde omgeving.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ======================================================
+       HEADER — komt identiek terug op elke pagina.
+       Logo (links) + navigatie (rechts) + hamburger voor mobiel.
+       ====================================================== -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <!-- PAS AAN: vervang images/logo.svg door je eigen logo -->
+        <img src="images/logo.svg" alt="Logo Bij U Geknipt">
+        Bij U Geknipt
+      </a>
+
+      <button class="nav-toggle" aria-label="Menu openen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" class="is-active">Home</a></li>
+          <li><a href="producten.html">Producten</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ======================================================
+       HERO — eerste indruk. Kernboodschap: het gemak van
+       een kapper die naar u toe komt.
+       ====================================================== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <span class="eyebrow">Kapper aan huis</span>
+        <!-- PAS AAN: hoofdtitel van de site -->
+        <h1>Een frisse knipbeurt, zonder de deur uit te hoeven.</h1>
+        <p class="hero-lead">
+          Ontspannen geknipt in uw eigen stoel. Ik kom met alle materialen
+          naar u toe — persoonlijk, op een tijdstip dat u uitkomt.
+        </p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn--primary">Maak een afspraak</a>
+          <a href="producten.html" class="btn btn--outline">Bekijk producten</a>
+        </div>
+      </div>
+
+      <!-- Signatuur-element: gestippelde 'route' van salon naar huis -->
+      <div class="route" aria-hidden="true">
+        <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+          <path class="route-path" d="M40 170 C 90 60, 230 60, 280 170" />
+          <!-- schaar-icoon (start) -->
+          <circle class="route-icon-bg" cx="40" cy="170" r="26"/>
+          <path d="M31 161 L49 179 M49 161 L31 179" stroke="#6E2A3A" stroke-width="2.4" stroke-linecap="round"/>
+          <!-- huisje-icoon (bestemming) -->
+          <circle class="route-icon-bg" cx="280" cy="170" r="26"/>
+          <path d="M268 175 L280 163 L292 175 M271 173 L271 184 L289 184 L289 173"
+                stroke="#6E2A3A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       HOE HET WERKT — 3 stappen. Genummerd omdat dit een
+       echt, chronologisch proces is.
+       ====================================================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Hoe het werkt</span>
+        <h2>In drie stappen naar uw nieuwe look</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <span class="step-number">01</span>
+          <h3>Boek uw afspraak</h3>
+          <p>Via telefoon, e-mail of het contactformulier — u geeft aan wanneer het u uitkomt.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">02</span>
+          <h3>Ik kom naar u toe</h3>
+          <p>Met alle benodigde materialen. U hoeft nergens voor te zorgen, alleen een stoel en stopcontact.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">03</span>
+          <h3>Geniet van uw knipbeurt</h3>
+          <p>Ontspannen in uw eigen omgeving, zonder reistijd of wachtrij in een salon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       TEASER — verwijzing naar de productenpagina
+       ====================================================== -->
+  <section class="section">
+    <div class="container teaser">
+      <div class="teaser-text">
+        <span class="eyebrow">Ook verkrijgbaar</span>
+        <h2>Professionele haarverzorging voor thuis</h2>
+        <p>
+          Naast knipbeurten aan huis verkoop ik een kleine, zorgvuldig
+          gekozen selectie haarverzorgingsproducten — zodat u het
+          salonresultaat ook tussen de afspraken door vasthoudt.
+        </p>
+        <a href="producten.html" class="btn btn--outline">Naar de producten</a>
+      </div>
+      <div class="teaser-visual">
+        <!-- PAS AAN: vervang deze twee placeholders door eigen foto's -->
+        <img src="images/foto-placeholder-1.svg" alt="">
+        <img src="images/foto-placeholder-2.svg" alt="">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       CITAAT — sociaal bewijs. PAS AAN met een echte review.
+       ====================================================== -->
+  <section class="section section--alt">
+    <div class="container quote">
+      <blockquote>
+        "Eindelijk geknipt zonder de deur uit te hoeven — rustig,
+        persoonlijk en precies zoals ik het wilde."
+      </blockquote>
+      <cite>— Naam klant, plaatsnaam</cite>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SLOTOPROEP
+       ====================================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Klaar voor een knipbeurt zonder gedoe?</h2>
+        <p>Plan vandaag nog een afspraak — ik kom graag bij u langs.</p>
+        <a href="contact.html" class="btn btn--outline">Neem contact op</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       FOOTER — komt identiek terug op elke pagina.
+       ====================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; <span id="year"></span> Bij U Geknipt. Alle rechten voorbehouden.</span>
+      <span>KvK: 00000000 &middot; <a href="contact.html">Contact</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

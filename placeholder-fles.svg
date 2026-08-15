@@ -1,0 +1,7 @@
+<!-- Placeholder afbeelding. Vervang door een echte productfoto met dezelfde bestandsnaam. -->
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#F1ECE2"/>
+  <rect x="160" y="70" width="30" height="24" rx="4" fill="#6E2A3A"/>
+  <rect x="140" y="94" width="70" height="230" rx="16" fill="#B4894F" opacity="0.85"/>
+  <rect x="150" y="150" width="50" height="60" rx="3" fill="#F1ECE2" opacity="0.9"/>
+</svg>
