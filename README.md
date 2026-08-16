@@ -7,7 +7,7 @@ die bij mensen thuis knipt. 3 pagina's: **Home**, **Producten**, **Contact**.
 
 ```
 index.html              -> Homepage
-producten.html          -> Productenpagina
+diensten.html          -> Productenpagina
 contact.html            -> Contactpagina met formulier
 css/style.css           -> Alle styling (met duidelijke secties/comments)
 js/main.js              -> Mobiel menu + formulierverzending
@@ -50,7 +50,7 @@ De gratis versie van Formspree is ruim voldoende voor een zzp-website
   eigen toon.
 - **Contactgegevens**: telefoonnummer, e-mailadres en werkgebied in
   `contact.html`.
-- **Producten & prijzen**: in `producten.html`, elk product staat in een
+- **Producten & prijzen**: in `diensten.html`, elk product staat in een
   los `<div class="product-card">` blokje — kopieer/plak of verwijder
   blokken om producten toe te voegen of weg te halen.
 - **Foto's**: alle `.svg`-bestanden in `images/` zijn tijdelijke

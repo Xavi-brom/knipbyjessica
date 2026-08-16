@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- PAS AAN: titel + omschrijving die in Google en browsertabs verschijnt -->
-  <title>Bij U Geknipt — Kapper aan huis</title>
+  <title>Knip by Jessica</title>
   <meta name="description" content="Professionele kapper aan huis. Geen reistijd, geen wachtrij — geknipt in uw eigen vertrouwde omgeving.">
-  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="images/logo.jpeg" type="image/jpeg">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -19,8 +19,8 @@
     <div class="container">
       <a href="index.html" class="logo">
         <!-- PAS AAN: vervang images/logo.svg door je eigen logo -->
-        <img src="images/logo.svg" alt="Logo Bij U Geknipt">
-        Bij U Geknipt
+        <img src="images/logo.jpeg" alt="Logo Knip by Jessica">
+        by jessica
       </a>
 
       <button class="nav-toggle" aria-label="Menu openen" aria-expanded="false">
@@ -30,12 +30,24 @@
       <nav class="main-nav">
         <ul>
           <li><a href="index.html" class="is-active">Home</a></li>
-          <li><a href="producten.html">Producten</a></li>
+          <li><a href="diensten.html">Diensten</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
+
+  <section class="countdown-bar" aria-label="Aftellen tot 1 november">
+    <div class="container countdown-bar__inner">
+      <span class="countdown-bar__label">Vanaf 1 november begin ik als ambulante kapster</span>
+      <div class="countdown" id="countdown" aria-live="polite">
+        <span><strong id="countdown-days">0</strong> dagen</span>
+        <span><strong id="countdown-hours">0</strong> uur</span>
+        <span><strong id="countdown-minutes">0</strong> min</span>
+        <span><strong id="countdown-seconds">0</strong> sec</span>
+      </div>
+    </div>
+  </section>
 
 
   <!-- ======================================================
@@ -45,31 +57,21 @@
   <section class="hero">
     <div class="container">
       <div class="hero-text">
-        <span class="eyebrow">Kapper aan huis</span>
         <!-- PAS AAN: hoofdtitel van de site -->
-        <h1>Een frisse knipbeurt, zonder de deur uit te hoeven.</h1>
+        <h1>Kapster aan huis in Voorthuizen en omgeving.</h1>
         <p class="hero-lead">
           Ontspannen geknipt in uw eigen stoel. Ik kom met alle materialen
-          naar u toe — persoonlijk, op een tijdstip dat u uitkomt.
+          naar u toe — persoonlijk, op de Dinsdag en Donderdag.
         </p>
         <div class="hero-actions">
           <a href="contact.html" class="btn btn--primary">Maak een afspraak</a>
-          <a href="producten.html" class="btn btn--outline">Bekijk producten</a>
+          <a href="diensten.html" class="btn btn--outline">Bekijk diensten</a>
         </div>
       </div>
 
       <!-- Signatuur-element: gestippelde 'route' van salon naar huis -->
       <div class="route" aria-hidden="true">
-        <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
-          <path class="route-path" d="M40 170 C 90 60, 230 60, 280 170" />
-          <!-- schaar-icoon (start) -->
-          <circle class="route-icon-bg" cx="40" cy="170" r="26"/>
-          <path d="M31 161 L49 179 M49 161 L31 179" stroke="#6E2A3A" stroke-width="2.4" stroke-linecap="round"/>
-          <!-- huisje-icoon (bestemming) -->
-          <circle class="route-icon-bg" cx="280" cy="170" r="26"/>
-          <path d="M268 175 L280 163 L292 175 M271 173 L271 184 L289 184 L289 173"
-                stroke="#6E2A3A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
+        <img src="images/logo.jpeg" alt="logo">
       </div>
     </div>
   </section>
@@ -90,7 +92,7 @@
         <div class="step">
           <span class="step-number">01</span>
           <h3>Boek uw afspraak</h3>
-          <p>Via telefoon, e-mail of het contactformulier — u geeft aan wanneer het u uitkomt.</p>
+          <p>Via WhatsApp, bellen, e-mail of het contactformulier (op de contact pagina) — u geeft aan wanneer het u uitkomt.</p>
         </div>
         <div class="step">
           <span class="step-number">02</span>
@@ -120,7 +122,7 @@
           gekozen selectie haarverzorgingsproducten — zodat u het
           salonresultaat ook tussen de afspraken door vasthoudt.
         </p>
-        <a href="producten.html" class="btn btn--outline">Naar de producten</a>
+        <p class="btn btn--outline">Naar de producten (nog niet beschikbaar)</p>
       </div>
       <div class="teaser-visual">
         <!-- PAS AAN: vervang deze twee placeholders door eigen foto's -->
@@ -132,23 +134,9 @@
 
 
   <!-- ======================================================
-       CITAAT — sociaal bewijs. PAS AAN met een echte review.
-       ====================================================== -->
-  <section class="section section--alt">
-    <div class="container quote">
-      <blockquote>
-        "Eindelijk geknipt zonder de deur uit te hoeven — rustig,
-        persoonlijk en precies zoals ik het wilde."
-      </blockquote>
-      <cite>— Naam klant, plaatsnaam</cite>
-    </div>
-  </section>
-
-
-  <!-- ======================================================
        SLOTOPROEP
        ====================================================== -->
-  <section class="section">
+  <section class="section section--alt">
     <div class="container">
       <div class="cta-banner">
         <h2>Klaar voor een knipbeurt zonder gedoe?</h2>
@@ -162,9 +150,9 @@
   <!-- ======================================================
        FOOTER — komt identiek terug op elke pagina.
        ====================================================== -->
-  <footer class="site-footer">
+  <footer class="site-footer site-footer--home">
     <div class="container">
-      <span>&copy; <span id="year"></span> Bij U Geknipt. Alle rechten voorbehouden.</span>
+      <span>&copy; <span id="year"></span> Knip by jessica. Alle rechten voorbehouden.</span>
       <span>KvK: 00000000 &middot; <a href="contact.html">Contact</a></span>
     </div>
   </footer>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diensten — Bij U Thuis Geknipt</title>
+  <meta name="description" content="Professionele kapper aan huis. Geen reistijd, geen wachtrij — geknipt in uw eigen vertrouwde omgeving.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER (identiek aan index.html, "Producten" is nu actief) -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.jpeg" alt="Logo Bij U Geknipt">
+        by jessica
+      </a>
+
+      <button class="nav-toggle" aria-label="Menu openen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="diensten.html" class="is-active">Diensten</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <section class="section">
+    <div class="container">
+
+      <!-- ======================================================
+           KORTE TEKST BOVEN DE PRODUCTEN — pas hier de intro aan.
+           ====================================================== -->
+      <div class="products-intro">
+        <h1 style="font-size: clamp(1.8rem, 3.4vw, 2.6rem);">Behandelingen en tarieven</h1>
+        <p>
+          Ik hanteer duidelijke, vaste tarieven voor mijn behandelingen. Hieronder vindt u een overzicht van de diensten die ik aanbied, inclusief de bijbehorende prijzen. Voor specifieke vragen of het maken van een afspraak kunt u altijd contact met mij opnemen.
+        </p>
+      </div>
+
+      <!-- ======================================================
+           PRODUCTGRID
+           Elk .product-card blok = 1 product. Kopieer een heel
+           <div class="product-card">...</div> blok om een nieuw
+           product toe te voegen, of verwijder er een om er een
+           weg te halen. Rijen vullen automatisch (4 op groot
+           scherm, 2 op tablet, 1 op mobiel — zie css/style.css
+           sectie 7 om dit aantal te wijzigen).
+           ====================================================== -->
+      <div class="diensten-layout">
+        <div class="dienst-list">
+          <div class="dienst-category">
+            <h2>Knippen</h2>
+            <ul>
+              <li>Knippen drogen (alle leeftijden) — € 27,50</li>
+              <li>Knippen föhnen — € 45,00</li>
+              <li>Föhnen of watergolven — € 27,50</li>
+            </ul>
+          </div>
+
+          <div class="dienst-category">
+            <h2>Kleuren</h2>
+            <ul>
+              <li>Volledige kleuring of uitgroei — € 52,00</li>
+              <li>Kleuren Knippen Drogen — € 70,00</li>
+              <li>Kleuren Knippen Föhnen — € 85,00</li>
+              <li>Extra product — € 10,00</li>
+            </ul>
+          </div>
+
+          <div class="dienst-category">
+            <h2>Permanenten</h2>
+            <ul>
+              <li>Soft permanent knippen en drogen — € 80,00</li>
+              <li>Soft permanent knippen en föhnen — € 95,00</li>
+              <li>Deel permanent knippen en föhnen — € 90,00</li>
+              <li>Permanent gehele hoofd knippen en drogen — € 97,50</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="family-discount" aria-labelledby="family-discount-title">
+          <span class="eyebrow">Korting</span>
+          <h2 id="family-discount-title">Groeps- en gezinskorting</h2>
+          <p>
+            Vanaf 3 personen op het zelde adres profiteer je direct van €2,50 korting voor het hele gezin of de groep.
+          </p>
+          <ul>
+            <li>Ideaal voor gezinnen, buren of kleine groepen.</li>
+            <li>Alles wordt achter elkaar ingepland op één locatie.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER (identiek aan index.html) -->
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; <span id="year"></span> Knip by jessica. Alle rechten voorbehouden.</span>
+      <span>KvK: 00000000 &middot; <a href="contact.html">Contact</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

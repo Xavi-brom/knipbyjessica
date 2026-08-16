@@ -32,8 +32,8 @@
   --color-ink-soft:    #5C554C;   /* subtielere tekst (bijschriften, intro's) */
   --color-line:        #D9CFBA;   /* dunne lijntjes/randjes */
 
-  --color-accent:      #6E2A3A;   /* hoofdaccent: dieprode wijnkleur (kapperstraditie) */
-  --color-accent-dark: #53202D;   /* donkere hover-variant van het accent */
+  --color-accent:      #78b555;   /* hoofdaccent: dieprode wijnkleur (kapperstraditie) */
+  --color-accent-dark: #427326;   /* donkere hover-variant van het accent */
   --color-gold:        #B4894F;   /* tweede accent: gedempt goud, voor kleine details */
 
   /* --- Typografie --------------------------------------------------------
@@ -149,7 +149,7 @@ textarea:focus-visible, select:focus-visible{
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(241, 236, 226, 0.92);
+  background: #78b555;
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--color-line);
 }
@@ -174,8 +174,8 @@ textarea:focus-visible, select:focus-visible{
   color: var(--color-ink);
 }
 .logo img{
-  height: 40px;
-  width: 40px;
+  height: 80px;
+  width: 100px;
 }
 
 .main-nav ul{
@@ -201,7 +201,6 @@ textarea:focus-visible, select:focus-visible{
 
 /* Actieve pagina (class="is-active" op de <a> van de huidige pagina) */
 .main-nav a.is-active{
-  color: var(--color-accent);
   font-weight: 600;
 }
 
@@ -265,6 +264,51 @@ textarea:focus-visible, select:focus-visible{
 /* ==========================================================================
    6. HOME PAGINA
    ========================================================================== */
+
+.countdown-bar{
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.countdown-bar__inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.countdown-bar__label{
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.countdown{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.countdown span{
+  min-width: 76px;
+  padding: 8px 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  color: var(--color-ink-soft);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.countdown strong{
+  display: block;
+  font-family: var(--font-price);
+  font-size: 1.15rem;
+  color: var(--color-accent);
+  line-height: 1.1;
+}
 
 /* --- Hero ---------------------------------------------------------------*/
 .hero{
@@ -478,6 +522,65 @@ textarea:focus-visible, select:focus-visible{
 }
 .product-cta:hover{ color: var(--color-accent); }
 
+.diensten-layout{
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.dienst-list{
+  display: grid;
+  gap: 28px;
+}
+
+.dienst-category{
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--color-line);
+}
+.dienst-category:last-child{ border-bottom: none; }
+
+.dienst-category h2{
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+}
+
+.dienst-category ul,
+.family-discount ul{
+  margin: 0;
+  padding-left: 20px;
+}
+
+.dienst-category li,
+.family-discount li{
+  margin-bottom: 8px;
+  color: var(--color-ink-soft);
+}
+
+.family-discount{
+  position: sticky;
+  top: 104px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: clamp(24px, 3vw, 34px);
+  box-shadow: var(--shadow-soft);
+}
+
+.family-discount h2{
+  font-size: 1.45rem;
+}
+
+.family-discount p{
+  color: var(--color-ink-soft);
+}
+
+.family-discount .btn{
+  margin-top: 18px;
+  width: 100%;
+  text-align: center;
+}
+
 
 /* ==========================================================================
    8. CONTACT PAGINA
@@ -584,6 +687,9 @@ textarea:focus-visible, select:focus-visible{
   border-top: 1px solid var(--color-line);
   padding: 36px 0;
 }
+.site-footer--home{
+  background: var(--color-bg-alt);
+}
 .site-footer .container{
   display: flex;
   flex-wrap: wrap;
@@ -611,6 +717,9 @@ textarea:focus-visible, select:focus-visible{
 
   .teaser{ grid-template-columns: 1fr; }
   .teaser-visual{ order: -1; }
+
+  .diensten-layout{ grid-template-columns: 1fr; }
+  .family-discount{ position: static; }
 
   .contact-layout{ grid-template-columns: 1fr; }
 }
@@ -640,6 +749,12 @@ textarea:focus-visible, select:focus-visible{
     gap: 0;
   }
   .main-nav a{ display: block; padding: 14px 8px; border-bottom: 1px solid var(--color-line); }
+
+  .countdown-bar__inner{
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .countdown span{ flex: 1 1 76px; }
 
   .steps{ grid-template-columns: 1fr; }
 

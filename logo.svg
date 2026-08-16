@@ -1,7 +1,7 @@
 <!--
   Placeholder logo. Vervang dit bestand gerust door je eigen logo
   (svg, png of jpg — pas dan ook de bestandsnaam aan in de <img> tag
-  in de header van index.html / producten.html / contact.html).
+  in de header van index.html / diensten.html / contact.html).
 -->
 <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
   <circle cx="20" cy="20" r="20" fill="#6E2A3A"/>

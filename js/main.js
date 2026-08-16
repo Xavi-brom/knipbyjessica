@@ -8,6 +8,47 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   /* ------------------------------------------------------------------
+     AFTELLER TOT 1 NOVEMBER
+     ------------------------------------------------------------------ */
+  var countdown = document.getElementById('countdown');
+
+  if (countdown) {
+    var daysEl = document.getElementById('countdown-days');
+    var hoursEl = document.getElementById('countdown-hours');
+    var minutesEl = document.getElementById('countdown-minutes');
+    var secondsEl = document.getElementById('countdown-seconds');
+
+    function getTargetDate() {
+      var now = new Date();
+      var target = new Date(now.getFullYear(), 10, 1, 0, 0, 0);
+
+      if (now >= target) {
+        target = new Date(now.getFullYear() + 1, 10, 1, 0, 0, 0);
+      }
+
+      return target;
+    }
+
+    function updateCountdown() {
+      var distance = getTargetDate() - new Date();
+      var secondsTotal = Math.max(0, Math.floor(distance / 1000));
+
+      var days = Math.floor(secondsTotal / 86400);
+      var hours = Math.floor((secondsTotal % 86400) / 3600);
+      var minutes = Math.floor((secondsTotal % 3600) / 60);
+      var seconds = secondsTotal % 60;
+
+      daysEl.textContent = days;
+      hoursEl.textContent = hours;
+      minutesEl.textContent = minutes;
+      secondsEl.textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  /* ------------------------------------------------------------------
      1. MOBIEL MENU
      Klapt de navigatie in/uit op kleine schermen (zie css sectie 10).
      ------------------------------------------------------------------ */
