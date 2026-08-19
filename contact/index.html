@@ -50,7 +50,7 @@
         <dl>
           <div class="contact-detail">
             <dt>Telefoon</dt>
-            <dd><a href="tel:+31600000000">06 - 56 13 15 82</a></dd>
+            <dd><a href="tel:+31656131582">06 - 56 13 15 82</a></dd>
           </div>
           <div class="contact-detail">
             <dt>E-mail</dt>
@@ -129,19 +129,5 @@
       <span>KvK: 00000000</span>
     </div>
   </footer>
-
-  <script src="../js/main.js"></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Kleine extra: als iemand via een productpagina hier komt
-    // (?product=Naam), wordt het berichtveld alvast ingevuld.
-    var params = new URLSearchParams(window.location.search);
-    var product = params.get('product');
-    if (product) {
-      document.getElementById('bericht').value =
-        'Hallo, ik ben geïnteresseerd in: ' + product + '.\n\n';
-    }
-  </script>
 </body>
 </html>
