@@ -339,9 +339,18 @@ select:focus-visible {
 
 .hero .container {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 48px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  grid-template-areas:
+    "text images"
+    "actions .";
+  column-gap: 48px;
+  row-gap: 24px;
   align-items: center;
+}
+
+.hero-text {
+  grid-area: text;
+  max-width: 720px;
 }
 
 .hero h1 {
@@ -355,36 +364,28 @@ select:focus-visible {
 }
 
 .hero-actions {
+  grid-area: actions;
   display: flex;
   gap: 14px;
-  margin-top: 28px;
   flex-wrap: wrap;
 }
 
-/* --- Route-lijn: het signatuur-element van deze site ---------------------
-   Symboliseert "de kapper komt naar u toe": een gestippeld pad tussen
-   een huisje en een schaar. Puur CSS/SVG, geen afbeelding nodig. */
-.route {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
+.hero-images {
+  grid-area: images;
+  display: grid;
+  width: min(100%, 460px);
+  margin: 0 auto;
 }
-.route svg {
+
+.hero-images img {
   width: 100%;
-  height: auto;
+  height: clamp(220px, 34vw, 360px);
+  border-radius: var(--radius);
 }
-.route-path {
-  stroke: var(--color-accent);
-  stroke-width: 2.5;
-  stroke-dasharray: 1 12;
-  stroke-linecap: round;
-  fill: none;
-}
-.route-icon-bg {
-  fill: var(--color-surface);
-  stroke: var(--color-line);
+
+.hero-image--portrait {
+  object-fit: contain;
+  background: var(--color-bg-alt);
 }
 
 /* --- Stappen ("hoe het werkt") -------------------------------------------
@@ -763,11 +764,11 @@ select:focus-visible {
 @media (max-width: 900px) {
   .hero .container {
     grid-template-columns: 1fr;
-  }
-  .route {
-    order: -1;
-    max-width: 420px;
-    margin: 0 auto;
+    grid-template-areas:
+      "text"
+      "images"
+      "actions";
+    row-gap: 24px;
   }
 
   .steps {
