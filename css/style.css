@@ -379,13 +379,8 @@ select:focus-visible {
 
 .hero-images img {
   width: 100%;
-  height: clamp(220px, 34vw, 360px);
+  height: auto;
   border-radius: var(--radius);
-}
-
-.hero-image--portrait {
-  object-fit: contain;
-  background: var(--color-bg-alt);
 }
 
 /* --- Stappen ("hoe het werkt") -------------------------------------------
@@ -436,9 +431,12 @@ select:focus-visible {
   gap: 14px;
 }
 .teaser-visual img {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  justify-self: center;
   border-radius: var(--radius);
-  aspect-ratio: 4/3;
-  object-fit: fit;
 }
 
 /* --- Citaat / testimonial -------------------------------------------------*/
